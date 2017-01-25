@@ -14,7 +14,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-
+/*
+ * Creates two-dimensional array
+ */
 function create2DArray($array, $numberOfRows, $numberOfColumns) {
     $array2D = [];
     $index = 0;
@@ -29,6 +31,9 @@ function create2DArray($array, $numberOfRows, $numberOfColumns) {
     }
     return $array2D;
 }
+/*
+ * Creates table from two-dimensional array
+ */
 function printTableFrom2DArray($array){
     echo '<table style="border: solid black 1px">';
     for ($i = 0; $i < count($array); $i++) {
@@ -42,6 +47,10 @@ function printTableFrom2DArray($array){
     }
     echo '</table>';
 }
+/*
+ * Creates text from two-dimensional array with snail algorithm, starting from
+ * [0][0]
+ */
 function snail($array, $lastRow, $lastColumn) {
 
     $result = '';

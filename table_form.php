@@ -7,14 +7,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['rows'] = $rows;
         $_SESSION['columns'] = $columns;
         
-        createFormWithRandomString($rows, $columns);
+        createFormWithRandomStrings($rows, $columns);
 
     } else {
         echo 'metodą post przesłano nieprawidłowe dane';
     }
 }
-
-function createFormWithRandomString($rows, $columns) {
+/*
+ * Creates form with random, two-signs input values
+ */
+function createFormWithRandomStrings($rows, $columns) {
     echo '<form action="table.php" method="POST">';
     $index = 0;
     for ($i=0; $i<$rows; $i++) {
@@ -30,6 +32,9 @@ function createFormWithRandomString($rows, $columns) {
     echo '<p><input type="submit" value="Oblicz"></p>';
     echo '</form>';
 }
+/*
+ * Creates random string of defined length with numbers and letters
+ */
 function randomString($length) {
     $original_string = array_merge(range(0,9), range('a','z'), range('A', 'Z'));
     $original_string = implode("", $original_string);
