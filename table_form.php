@@ -22,7 +22,7 @@ function createFormWithRandomStrings($rows, $columns) {
     for ($i=0; $i<$rows; $i++) {
         
         for ($j=0; $j<$columns; $j++){
-           $value = RandomString(2);
+           $value = randomString(2);
            
            echo "<input type='text' style='width: 50px;' name='$index' value='$value'>";
            $index++;
