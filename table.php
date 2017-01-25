@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $arrayToCreateTable = $_POST;
         $numberOfRows = $_SESSION['rows'];
         $numberOfColumns = $_SESSION['columns'];
-        $arrayToSnail = create2DArray($numberOfRows, $numberOfColumns, $arrayToCreateTable);
+        $arrayToSnail = create2DArray($arrayToCreateTable, $numberOfRows, $numberOfColumns);
         printTableFrom2DArray($arrayToSnail);
         echo '<br> Rezultat: '.snail($arrayToSnail, $numberOfRows, $numberOfColumns);
     } else {
@@ -15,13 +15,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 
-function create2DArray($numberOfRows, $numberOfColumns, $array) {
+function create2DArray($array, $numberOfRows, $numberOfColumns) {
     $array2D = [];
-    for ($i = 1; $i <= $numberOfRows; $i++) {
+    $index = 0;
+    for ($i = 0; $i < $numberOfRows; $i++) {
         $array1D = [];
         for ($j = 0; $j < $numberOfColumns; $j++) {
-            $value = $array[$i . $j];
+            $value = $array[$index];
             $array1D[] = $value;
+            $index ++;
         }
         $array2D[] = $array1D;
     }
